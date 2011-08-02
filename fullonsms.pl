@@ -1,12 +1,16 @@
 #!/usr/bin/perl
 
-use Fullonsms;
+use Fullonsms::Session;
+use Fullonsms::Message;
 
-my $message = Fullonsms->new(
-    username            => 'Your fullonsms username',
-    password            => 'Your fullonsms password',
-    receiver_mobile_no  => [ 'mobile no 1', 'mobile no 2' ],
+my $session = Fullonsms::Session->new(
+    username    => 'your fullonsms username',
+    password    => 'your fullonsms password',
+)->login;
+
+my $message = Fullonsms::Message->new(
+    session             => $session,
+    receiver_mobile_no  => [ 'mobile no 1', ' mobile no 2' ],
     message             => "Wow this is working"
 );
-
 $message->send();
