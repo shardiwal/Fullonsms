@@ -6,11 +6,11 @@ use warnings;
 use Fullonsms::Session;
 use Fullonsms::Message;
 
-my $user = Fullonsms::Session->new(
+my $session = Fullonsms::Session->new(
     username    => 'your fullonsms username',
     password    => 'your fullonsms password',
 );
-my $session = $user->login;
+$session->login;
 
 my $message = Fullonsms::Message->new(
     session             => $session,

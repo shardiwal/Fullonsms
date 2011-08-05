@@ -54,11 +54,11 @@ has 'browser' => (
 
 =head1 SYNOPSIS
 
-   my $user = Fullonsms::Session->new(
+   my $session = Fullonsms::Session->new(
        username    => 'your fullonsms username',
        password    => 'your fullonsms password',
    );
-   my $session = $user->login;
+   $session->login;
 
 =head1 SUBROUTINES/METHODS
 
@@ -87,7 +87,7 @@ sub login {
 
     if ( $self->_is_logged_id($response_content) ) {
         Fullonsms::Util::inform_user("$response_code : Login");
-        return $self;
+        return 1;
     }
     else {
         Fullonsms::Util::inform_user(" Login failed ");
