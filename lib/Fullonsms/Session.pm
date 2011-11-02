@@ -104,7 +104,7 @@ sub _is_logged_id {
         my $attr = $meta_tag->attributes;
         foreach my $key ( sort keys %$attr ) {
             if (    $attr->{'http-equiv'} eq 'Refresh'
-                and $attr->{'content'} =~ /home\.php\?Login=1/ )
+                and $attr->{'content'} =~ /php\?Login=1/ )
             {
                 $result_found = 1;
             }
